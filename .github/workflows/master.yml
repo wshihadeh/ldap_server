@@ -1,0 +1,31 @@
+name: CI-MASTER
+
+on:
+  push:
+    branches:
+      - master
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+    - name: Perform docker login
+      run: echo  ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOKCER_USER_NAME }}  --password-stdin
+    - name: Build Docker Images
+      run: |
+        make release
+    - name: Slack notification Success
+      if: success()
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+      uses: cemkiy/action-slacker@master
+      with:
+        channel: '#github-ci-actions'
+        icon_url: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'
+        username: 'GitHub'
