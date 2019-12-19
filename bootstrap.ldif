@@ -1,0 +1,52 @@
+dn: cn=developer,dc=shihadeh,dc=intern
+changetype: add
+objectclass: inetOrgPerson
+cn: developer
+givenname: developer
+sn: Developer
+displayname: Developer User
+mail: developer@gmail.com
+userpassword: developer_pass
+
+dn: cn=maintainer,dc=shihadeh,dc=intern
+changetype: add
+objectclass: inetOrgPerson
+cn: maintainer
+givenname: maintainer
+sn: Maintainer
+displayname: Maintainer User
+mail: maintainer@gmail.com
+userpassword: maintainer_pass
+
+dn: cn=admin_gh,dc=shihadeh,dc=intern
+changetype: add
+objectclass: inetOrgPerson
+cn: admin_gh
+givenname: admin_gh
+sn: AdminGithub
+displayname: Admin Github User
+mail: admin_gh@gmail.com
+userpassword: admin_gh_pass
+
+dn: ou=Groups,dc=shihadeh,dc=intern
+changetype: add
+objectclass: organizationalUnit
+ou: Groups
+
+dn: ou=Users,dc=shihadeh,dc=intern
+changetype: add
+objectclass: organizationalUnit
+ou: Users
+
+dn: cn=Admins,ou=Groups,dc=shihadeh,dc=intern
+changetype: add
+cn: Admins
+objectclass: groupOfUniqueNames
+uniqueMember: cn=admin,dc=shihadeh,dc=intern
+
+dn: cn=Maintaners,ou=Groups,dc=shihadeh,dc=intern
+changetype: add
+cn: Maintaners
+objectclass: groupOfUniqueNames
+uniqueMember: cn=maintainer,dc=shihadeh,dc=intern
+uniqueMember: cn=developer,dc=shihadeh,dc=intern
