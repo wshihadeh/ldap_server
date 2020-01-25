@@ -1,6 +1,6 @@
 FROM osixia/openldap
 
-LABEL maintainer="wshihadeh@gmail.com"
+LABEL maintainer="wshihadeh.devx@gmail.com"
 
 ENV LDAP_ORGANISATION="Al-waleed Test Org" \
     LDAP_DOMAIN="shihadeh.intern"
