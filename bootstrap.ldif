@@ -1,52 +1,39 @@
-dn: cn=developer,dc=shihadeh,dc=intern
-changetype: add
-objectclass: inetOrgPerson
-cn: developer
-givenname: developer
-sn: Developer
-displayname: Developer User
-mail: developer@gmail.com
-userpassword: developer_pass
-
-dn: cn=maintainer,dc=shihadeh,dc=intern
-changetype: add
-objectclass: inetOrgPerson
-cn: maintainer
-givenname: maintainer
-sn: Maintainer
-displayname: Maintainer User
-mail: maintainer@gmail.com
-userpassword: maintainer_pass
-
-dn: cn=admin_gh,dc=shihadeh,dc=intern
-changetype: add
-objectclass: inetOrgPerson
-cn: admin_gh
-givenname: admin_gh
-sn: AdminGithub
-displayname: Admin Github User
-mail: admin_gh@gmail.com
-userpassword: admin_gh_pass
-
-dn: ou=Groups,dc=shihadeh,dc=intern
-changetype: add
+dn: ou=github,dc=shihadeh,dc=intern
 objectclass: organizationalUnit
-ou: Groups
+objectclass: top
+ou: github
 
-dn: ou=Users,dc=shihadeh,dc=intern
-changetype: add
+dn: ou=organizations,ou=github,dc=shihadeh,dc=intern
 objectclass: organizationalUnit
-ou: Users
+objectclass: top
+ou: organizations
 
-dn: cn=Admins,ou=Groups,dc=shihadeh,dc=intern
-changetype: add
-cn: Admins
+dn: cn=ash-core,ou=organizations,ou=github,dc=shihadeh,dc=intern
+cn: ash-core
 objectclass: groupOfUniqueNames
-uniqueMember: cn=admin,dc=shihadeh,dc=intern
+objectclass: top
+uniquemember: cn=admins,ou=teams,ou=github,dc=shihadeh,dc=intern
 
-dn: cn=Maintaners,ou=Groups,dc=shihadeh,dc=intern
-changetype: add
-cn: Maintaners
+dn: ou=teams,ou=github,dc=shihadeh,dc=intern
+objectclass: organizationalUnit
+objectclass: top
+ou: teams
+
+dn: cn=admins,ou=teams,ou=github,dc=shihadeh,dc=intern
+cn: admins
 objectclass: groupOfUniqueNames
-uniqueMember: cn=maintainer,dc=shihadeh,dc=intern
-uniqueMember: cn=developer,dc=shihadeh,dc=intern
+objectclass: top
+uniquemember: cn=wshihadeh,ou=people,dc=shihadeh,dc=intern
+
+dn: ou=people,dc=shihadeh,dc=intern
+objectclass: organizationalUnit
+objectclass: top
+ou: people
+
+dn: cn=wshihadeh,ou=people,dc=shihadeh,dc=intern
+cn: wshihadeh
+mail: wshihadeh.dev@gmail.com
+objectclass: inetOrgPerson
+objectclass: top
+sn: shihadeh
+userpassword: {MD5}poF0XWNShBHFDRU3W/3yjg==
