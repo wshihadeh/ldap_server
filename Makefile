@@ -3,7 +3,7 @@ NAMESPACE ?= wshihadeh
 # Docker registry
 REGISTRY ?= index.docker.io
 
-IMAGE ?= ${REGISTRY}/${NAMESPACE}/ldap:withdata
+IMAGE ?= ${REGISTRY}/${NAMESPACE}/ldap:withgithubdata
 
 
 # Make sure recipes are always executed
